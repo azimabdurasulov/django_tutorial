@@ -3,10 +3,10 @@
 from django.urls import path
 from django.http import HttpResponse,HttpRequest,JsonResponse
 def index(request:HttpRequest):
-    a = request.GET['a']
-    b = request.GET['b']
+    a = request.GET.get('a', 0)
+    b = request.GET.get('b', 0)
     return JsonResponse({
-        'result':a+b
+        'result':int(a)+int(b)
     })
 
 urlpatterns = [
