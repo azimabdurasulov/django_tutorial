@@ -1,5 +1,10 @@
 from django.http import HttpResponse,HttpRequest,JsonResponse
 import json
+from .models import Person
+def home(request:HttpRequest):
+    person = Person.objects.all()
+    print(person[0].first_name)
+    return 'Hello world'
 def index(request:HttpRequest):
     a = request.GET.get('a', 0)
     b = request.GET.get('b', 0)
